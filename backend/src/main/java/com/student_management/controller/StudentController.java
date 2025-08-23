@@ -1,5 +1,6 @@
 package com.student_management.controller;
 
+import com.student_management.exceptions.StudentNotFoundException;
 import com.student_management.model.Student;
 import com.student_management.service.StudentService;
 import com.student_management.service.impl.StudentServiceImpl;
@@ -39,12 +40,8 @@ public class StudentController {
 
     @DeleteMapping("student/{id}")
     public ResponseEntity<?> deleteStudent(@PathVariable long id){
-        try {
-            studentService.deleteStudent(id);
-            return new ResponseEntity<>("Successfully deleted the student : "+id, HttpStatus.OK);
-        }catch (EntityNotFoundException ex){
-            return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
-        }
+        studentService.deleteStudent(id);
+        return new ResponseEntity<>("Successfully deleted the student : "+id, HttpStatus.OK);
     }
 
     @GetMapping("student/{id}")

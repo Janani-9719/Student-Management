@@ -1,9 +1,9 @@
 package com.student_management.service.impl;
 
+import com.student_management.exceptions.StudentNotFoundException;
 import com.student_management.model.Student;
 import com.student_management.repository.StudentRepository;
 import com.student_management.service.StudentService;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +35,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void deleteStudent(long id) {
         if (!studentRepository.existsById(id)){
-            throw new EntityNotFoundException("Student : "+id+ " Not Found");
+            throw new StudentNotFoundException(id);
         }
         studentRepository.deleteById(id);
     }
