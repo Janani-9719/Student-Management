@@ -1,0 +1,22 @@
+.registration-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.registration-form Form{
+    max-width: 25vw;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #333131;
+    text-align: center;
+}
+
+.registration-form Form .form-control{
+    margin-bottom: 20px;
+    padding: 10px;
+}

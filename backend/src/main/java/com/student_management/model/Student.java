@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Table(name = "students")
 public class Student {
 
@@ -42,6 +41,14 @@ public class Student {
     @Column(name = "created_at",updatable = false)
     private LocalDateTime createdAt=LocalDateTime.now();
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -66,6 +73,14 @@ public class Student {
         this.email = email;
     }
 
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
     public Gender getGender() {
         return gender;
     }
@@ -82,11 +97,11 @@ public class Student {
         this.phone = phone;
     }
 
-    public LocalDate getDob() {
-        return dob;
-    }
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }
